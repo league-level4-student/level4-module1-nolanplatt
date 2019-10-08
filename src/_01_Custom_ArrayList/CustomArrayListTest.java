@@ -19,6 +19,8 @@ public class CustomArrayListTest {
 		if(list.get(2) != 206) fail("list.get(2) returning improper value.");
 	}
 	
+	
+	
 	@Test
 	public void testSet() {
 		ArrayList<String> list = new ArrayList<String>();
@@ -103,6 +105,8 @@ public class CustomArrayListTest {
 		assertFalse(list.contains("best"));
 	}
 	
+	/*
+	
 	@Test
 	public void testSize() {
 		ArrayList<String> list = new ArrayList<String>();
@@ -138,4 +142,5 @@ public class CustomArrayListTest {
 		
 		assertTrue(list.size() == 3);
 	}
+	*/
 }
