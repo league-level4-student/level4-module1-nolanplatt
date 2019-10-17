@@ -75,7 +75,7 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 
 	public void startGame() {
 		//1. Save the instructions for the game in the following string variable.
-		String instructions = "";
+		String instructions = "1)move 2)dont hit yourself 3)eat food to grow";
 		
 		String[] options = new String[] { "Expert", "Moderate", "Beginner" };
 		int input = JOptionPane.showOptionDialog(null, instructions, "Snake", 0, -1, null, options, 0);
@@ -86,7 +86,22 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		//   Use timer.setDelay(delay) with different numbers to change the speed
 		//   of the game. The smaller the number, the faster it goes.
 
+		switch(choice) {
+		case "Expert":
+			timer.setDelay(2);
+			break;
+		
+		case "Moderate":
+			timer.setDelay(4);
+			break;
+		case "Beginner":
+			timer.setDelay(6);
+			break;
+		default:
+			System.out.println("Nothing selected.");
+		}
 		//3. start the timer
+		timer.start();
 	}
 
 	public static void main(String[] args) {
@@ -104,16 +119,39 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		//1. Use a switch statement on e.getKeyCode()
 		//   to determine which key was pressed.
 		
+		
 		// if an arrow key is pressed, set the snake's 
 		// direction accordingly
 		
 		// if the space key is pressed, call the snake's feed method
+
+		switch(e.getKeyCode()) {
+		case KeyEvent.VK_RIGHT:
+			snake.setDirection(Direction.RIGHT);
+			break;
+		case KeyEvent.VK_LEFT:
+			snake.setDirection(Direction.LEFT);
+			break;
+		case KeyEvent.VK_UP:
+			snake.setDirection(Direction.UP);
+			break;
+		case KeyEvent.VK_DOWN:
+			snake.setDirection(Direction.DOWN);
+			break;
+		case KeyEvent.VK_SPACE:
+			snake.feed();
+			break;
+	}
+			
+
+		
+		
 		
 	}
 
 	private void setFoodLocation() {
 		//1. Create a new Location object that is set to a random location
-		
+	
 		//2. set the foodLocation variable equal to the Location object you just created.
 		//   use the snake's isLocationOnSnake method to make sure you don't put the food on the snake
 		
