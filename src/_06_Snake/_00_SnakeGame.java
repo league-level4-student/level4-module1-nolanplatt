@@ -88,14 +88,14 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 
 		switch(choice) {
 		case "Expert":
-			timer.setDelay(2);
+			timer.setDelay(15);
 			break;
 		
 		case "Moderate":
-			timer.setDelay(4);
+			timer.setDelay(20);
 			break;
 		case "Beginner":
-			timer.setDelay(6);
+			timer.setDelay(1000 / 60);
 			break;
 		default:
 			System.out.println("Nothing selected.");
@@ -127,7 +127,6 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 
 		switch(e.getKeyCode()) {
 		case KeyEvent.VK_RIGHT:
-			
 			snake.setDirection(Direction.RIGHT);
 			break;
 		case KeyEvent.VK_LEFT:
@@ -199,8 +198,10 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 	public void actionPerformed(ActionEvent e) {
 		//1. update the snake
 		snake.update();
+		
 		//2. if the snake is colliding with its own body 
 		//   or if the snake is out of bounds, call gameOver
+		
 		if(snake.isHeadCollidingWithBody() || snake.isOutOfBounds()) {
 			gameOver();
 		}
@@ -210,6 +211,8 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 			snake.feed();
 			setFoodLocation();
 		}
+		
+		
 		//4. call panel.repaint();
 		panel.repaint();
 	}
